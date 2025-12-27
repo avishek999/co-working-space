@@ -1,0 +1,27 @@
+.hero_section {
+  .text_container {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: clamp(2rem, 8vw, 6.5rem);   
+      height: clamp(2rem, 8vw, 6.5rem);
+      top: clamp(-7rem, -10vw, -109.5rem);
+      right: clamp(5rem, 10vw, 8rem);
+      border-radius: 50%;
+      border: 0.3rem dashed #010101;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: clamp(1.5rem, 4vw, 2rem); 
+      height: clamp(1.5rem, 4vw, 2rem);
+      top: clamp(-1rem, -4vw, -1.5rem);
+      right: clamp(10rem, 15vw, 13rem);
+      border-radius: 50%;
+      border: 0.125rem solid #010101;
+    }
+  }
+}
