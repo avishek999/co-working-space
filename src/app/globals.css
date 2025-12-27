@@ -1,26 +1,184 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/ClashGrotesk-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/ClashGrotesk-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/ClashGrotesk-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/ClashGrotesk-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/ClashGrotesk-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --white-background: #f5f5f5;
+  --pink-background: #febebe;
+  --gray-background: #dcdef0;
+  --black-background: #010101;
+  --primary-text: #010101;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-primary: var(--primary-background);
+  --color-pinkbg: var(--pink-background);
+  --color-graybg: var(--gray-background);
+  --color-blackbg: var(--black-background);
+  --color-primaryText: var(--primary-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(2rem, 5vw, 2.625rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: 2%;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 500;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  h4 {
+    font-size: clamp(1.5rem, 5vw, 1.75rem);
+    font-weight: 500;
+    line-height: 32px;
+    text-wrap: balance;
+  }
+
+  .p-small {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 24px;
+  }
+  .p-regular {
+    font-size: clamp(1.125rem, 5vw, 1.5rem);
+    font-weight: 400;
+    line-height: clamp(24px, 5vh, 38px);
+    letter-spacing: 0.02em;
+  }
+  .p-big {
+    font-size: clamp(1.25rem, 5vw, 2.25rem);
+    font-weight: 400;
+    line-height: clamp(32px, 4vw, 56px);
+    letter-spacing: 0.02em;
+  }
+
+  .custom_container {
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+
+  .flex_center_both {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav_items{
+    display: none;
+  }
+
+  .hamburger_icon{
+    display: block;
+  }
+  @media (min-width: 640px) {
+    .custom_container {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+
+  @media (min-width: 820px) {
+    .nav_items {
+      display: flex;
+    }
+    .hamburger_icon {
+      display: none;
+    }
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--white-background);
+  font-family: "Clash Grotesk", sans-serif;
+}
+
+
+
+/* .swiper-slide {
+  transition: transform 0.4s ease; 
+}
+.swiper-slide-active {
+  transform: scale(1.1);
+  border-radius: 0; 
+  z-index: 10;
+  height: 516px !important;     
+  width: 435px !important;
+}
+
+.swiper-wrapper{
+  align-items: center;
+
+} */
+
+
+/* pagination bullets */
+.swiper-pagination-bullet {
+  @apply bg-gray-400 w-3 h-3 opacity-60 rounded-full;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !bg-[#D4ADFE] opacity-100 w-4 h-4 !mt-10;
+}
+
+/* navigation arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply !text-gray-600 
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px !important; /* arrow size */
+  font-weight: bold;
 }
